@@ -20,11 +20,28 @@ Ora che la logica è funzionante in pagina, possiamo andare a dedicarci allo sti
 */
 
 // seleziono i nodi della DOM nel form
-const nameFieldEl = document.getElementById("name-field");
+
 const kmFieldEl = document.getElementById("km-field");
 const ageFieldEl = document.getElementById("age-field");
+const formEl = document.querySelector("form");
+const outputEl = document.getElementById("output");
+const kmPrice = 0.21;
+formEl.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const kmFieldValue = Number(kmFieldEl.value);
+  const ageFieldValue = Number(ageFieldEl.value);
 
-//console.log(nameFieldEl, kmFieldEl, ageFieldEl);
+  let totalPrice = kmFieldValue * kmPrice;
+
+  if (ageFieldValue < 18) {
+    totalPrice -= totalPrice * 0.2;
+  } else if (ageFieldValue > 65) {
+    totalPrice -= totalPrice * 0.4;
+  }
+  const finalPrice = totalPrice.toFixed(2);
+
+  outputEl.innerHTML = totalPrice;
+});
 
 // seleziono i nodi della DOM nella card
 

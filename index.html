@@ -16,29 +16,21 @@
             <!-- /.card-first -->
             <form>
                 <div class="row">
-                    <div class="col">Nome e Cognome</div>
-                    <!-- /.col 1 -->
                     <div class="col">Km da percorrere</div>
                     <!-- /.col 2-->
                     <div class="col">Fascia d'età</div>
                     <!-- /.col 3-->
                 </div>
                 <div class="row mt-4">
+
                     <div class="col">
-                        <input class="form-control" placeholder="Nome e Cognome" id="name-field" type="text" required>
-                    </div>
-                    <!-- /.col 1b -->
-                    <div class="col">
-                        <input class="form-control" placeholder="Km da percorrere" id="km-field" type="text" required>
+                        <input class="form-control" placeholder="Km da percorrere" id="km-field" type="number" required>
                     </div>
                     <!-- /.col 2b-->
                     <div class="col">
-                        <select class="form-select" id="age-field">
-                            <option value="minorenne">Minorenne</option>
-                            <option value="maggiorenne">Maggiorenne</option>
-                            <option value="over-65">Over-65</option>
-                        </select>
+                        <input class="form-control" placeholder="age" id="age-field" type="number" required>
                     </div>
+
                     <!-- /.col 3b-->
                 </div>
                 <!-- /.row -->
@@ -48,6 +40,8 @@
                 <!-- /.btn-->
             </form>
             <!-- /.form-->
+            <div id="output"></div>
+            <!-- /#output -->
         </div>
     </div>
 
