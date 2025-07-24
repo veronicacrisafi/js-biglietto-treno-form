@@ -10,11 +10,11 @@
 </head>
 
 <body>
-
+    <h1>CALCOLA IL PREZZO DEL TUO BIGLIETTO</h1>
     <div class="container mt-5">
         <div class="card">
             <!-- /.card-first -->
-            <form action="">
+            <form>
                 <div class="row">
                     <div class="col">Nome e Cognome</div>
                     <!-- /.col 1 -->
@@ -29,14 +29,14 @@
                     </div>
                     <!-- /.col 1b -->
                     <div class="col">
-                        <input class="form-control" placeholder="Km da percorrere" id="name-field" type="text" required>
+                        <input class="form-control" placeholder="Km da percorrere" id="km-field" type="text" required>
                     </div>
                     <!-- /.col 2b-->
                     <div class="col">
                         <select class="form-select" id="age-field">
                             <option value="minorenne">Minorenne</option>
                             <option value="maggiorenne">Maggiorenne</option>
-                            <option value="over-65">Over 65</option>
+                            <option value="over-65">Over-65</option>
                         </select>
                     </div>
                     <!-- /.col 3b-->
@@ -44,7 +44,6 @@
                 <!-- /.row -->
                 <div class="btn mt-4">
                     <button id="button-genera" type="submit">GENERA</button>
-                    <button id="button-annulla">ANNULLA</button>
                 </div>
                 <!-- /.btn-->
             </form>
@@ -52,59 +51,7 @@
         </div>
     </div>
 
-    <div class="container mt-5">
-        <!-- /.container -->
-        <div class="col">
 
-            <div class="card">
-                <div class="card-header" id="passeggeri">
-                    DETTAGLIO PASSEGGERI
-                </div>
-                <!-- /.card-header-->
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col">
-                            <h3>Nome passeggero</h3>
-                            <p>Nome e Cognome</p>
-                        </div>
-                        <!-- /.col -->
-                        <div class="col">
-                            <p>
-                                <strong>Offerta</strong>
-                            </p>
-                            <p>Biglietto stardand</p>
-                        </div>
-                        <!-- /.col -->
-                        <div class="col">
-                            <p>
-                                <strong>Carrozza</strong>
-                            </p>
-                            <p>5</p>
-                        </div>
-                        <!-- /.col -->
-                        <div class="col">
-                            <p>
-                                <strong>Codice CP</strong>
-                            </p>
-                            <p>92911</p>
-                        </div>
-                        <!-- /.col -->
-                        <div class="col">
-                            <p>
-                                <strong>Costo biglietto</strong>
-                            </p>
-                            <p>2.10 €</p>
-                        </div>
-                        <!-- /.col -->
-                    </div>
-                    <!-- /.row -->
-
-                </div>
-                <!-- /.card-body -->
-            </div>
-
-        </div>
-    </div>
     <script src="./main.js"></script>
 </body>
 
