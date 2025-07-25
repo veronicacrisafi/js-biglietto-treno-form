@@ -25,12 +25,13 @@ const kmFieldEl = document.getElementById("km-field");
 const ageFieldEl = document.getElementById("age-field");
 const formEl = document.querySelector("form");
 const outputEl = document.getElementById("output");
+const nomePasseggeroFieldEl = document.getElementById("name-field");
 const kmPrice = 0.21;
 formEl.addEventListener("submit", (e) => {
   e.preventDefault();
   const kmFieldValue = Number(kmFieldEl.value);
   const ageFieldValue = Number(ageFieldEl.value);
-
+  const nomePasseggeroValue = nomePasseggeroFieldEl.value;
   let totalPrice = kmFieldValue * kmPrice;
 
   if (ageFieldValue < 18) {
@@ -39,14 +40,51 @@ formEl.addEventListener("submit", (e) => {
     totalPrice -= totalPrice * 0.4;
   }
   const finalPrice = totalPrice.toFixed(2);
+  const cpCode = getRandomNumber(10000, 20000);
+  const carrozzaNumber = getRandomNumber(1, 15);
 
-  outputEl.innerHTML = totalPrice;
+  outputEl.innerHTML = generaTicketMarkup(
+    nomePasseggeroValue,
+    finalPrice,
+    cpCode,
+    carrozzaNumber
+  );
 });
 
-// seleziono i nodi della DOM nella card
+//funzione che genera numeri random
+function getRandomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
-// trigerare il submit
-
-//prendere i dati
-
-// aggiornare la card
+function generaTicketMarkup(
+  nomePasseggeroValue,
+  finalPrice,
+  cpCode,
+  carrozzaNumber
+) {
+  return `
+  <div class="card">
+                <div class="card-body">
+                <div class= "card-header">
+                ${nomePasseggeroValue}
+                </div>
+                    <h3>Il tuo biglietto</h3>
+                    <div>
+                        <span>Prezzo finale</span>
+                        <strong>${finalPrice}&euro;</strong>
+                    </div>
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer">
+                    <div>
+                        <span>CP CODE</span>
+                        <strong class="cp-code">${cpCode}</strong>
+                    </div>
+                    <div>
+                        <span>CARROZZA</span>
+                        <strong class="numero-carrozza">${carrozzaNumber}</strong>
+                    </div>
+                </div>
+                <!-- /.card-footer -->
+            </div>`;
+}
