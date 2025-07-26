@@ -26,6 +26,7 @@ const categoriaEl = document.getElementById("categoria-passeggero");
 const formEl = document.querySelector("form");
 const outputEl = document.getElementById("output");
 const nomePasseggeroFieldEl = document.getElementById("name-field");
+const buttonDeleteEl = document.getElementById("button-annulla");
 const kmPrice = 0.21;
 
 formEl.addEventListener("submit", (e) => {
@@ -77,35 +78,44 @@ function generaTicketMarkup(
   categoriaPasseggero
 ) {
   return `
-  <h1 class=" mt-5 "align = "center">IL TUO BIGLIETTO<h1>
+ <em> <h1 class="text-center text-white mt-5 ">IL TUO BIGLIETTO<h1> </em>
+  
   
   <div class="card">
-                <div class="card-body">
                 
-                <div class= "card-header">
+                
+                <div class= "card-header text-uppercase text-secondary">
                 ${nomePasseggeroValue}
                 </div>
+                <div class="card-body">
                     <div id="categoria-passeggero">
-                    <span>Categoria</span> 
+                    <span class="text-secondary">CATEGORIA</span> 
                     <strong>${categoriaPasseggero}</strong>
                     </div>
                     <div>
-                        <span>Prezzo finale</span>
+                        <span class="text-secondary">PREZZO FINALE</span>
                         <strong>${finalPrice}&euro;</strong>
                     </div>
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
                     <div>
-                        <span>CP CODE</span>
+                        <span class="text-secondary">CP CODE</span>
                         <strong class="cp-code">${cpCode}</strong>
                     </div>
                     <div>
-                        <span>CARROZZA</span>
+                        <span class="text-secondary">CARROZZA</span>
                         <strong class="numero-carrozza">${carrozzaNumber}</strong>
                     </div>
                 </div>
                 <!-- /.card-footer -->
                 
             </div>`;
+}
+
+function pulisciForm(form) {
+  const myForm = document.querySelector("form");
+  if (form) {
+    myForm.reset();
+  }
 }
