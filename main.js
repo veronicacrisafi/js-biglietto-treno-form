@@ -20,18 +20,30 @@ Ora che la logica è funzionante in pagina, possiamo andare a dedicarci allo sti
 */
 
 // seleziono i nodi della DOM nel form
-
 const kmFieldEl = document.getElementById("km-field");
 const ageFieldEl = document.getElementById("age-field");
+const categoriaEl = document.getElementById("categoria-passeggero");
 const formEl = document.querySelector("form");
 const outputEl = document.getElementById("output");
 const nomePasseggeroFieldEl = document.getElementById("name-field");
 const kmPrice = 0.21;
+
 formEl.addEventListener("submit", (e) => {
   e.preventDefault();
   const kmFieldValue = Number(kmFieldEl.value);
   const ageFieldValue = Number(ageFieldEl.value);
   const nomePasseggeroValue = nomePasseggeroFieldEl.value;
+
+  let categoriaPasseggero = "";
+
+  if (ageFieldValue <= 17) {
+    categoriaPasseggero = "Minorenne";
+  } else if (ageFieldValue >= 65) {
+    categoriaPasseggero = "Over-65";
+  } else {
+    categoriaPasseggero = "Maggiorenne";
+  }
+
   let totalPrice = kmFieldValue * kmPrice;
 
   if (ageFieldValue < 18) {
@@ -47,7 +59,8 @@ formEl.addEventListener("submit", (e) => {
     nomePasseggeroValue,
     finalPrice,
     cpCode,
-    carrozzaNumber
+    carrozzaNumber,
+    categoriaPasseggero
   );
 });
 
@@ -60,15 +73,22 @@ function generaTicketMarkup(
   nomePasseggeroValue,
   finalPrice,
   cpCode,
-  carrozzaNumber
+  carrozzaNumber,
+  categoriaPasseggero
 ) {
   return `
+  <h1 class=" mt-5 "align = "center">IL TUO BIGLIETTO<h1>
+  
   <div class="card">
                 <div class="card-body">
+                
                 <div class= "card-header">
                 ${nomePasseggeroValue}
                 </div>
-                    <h3>Il tuo biglietto</h3>
+                    <div id="categoria-passeggero">
+                    <span>Categoria</span> 
+                    <strong>${categoriaPasseggero}</strong>
+                    </div>
                     <div>
                         <span>Prezzo finale</span>
                         <strong>${finalPrice}&euro;</strong>
@@ -86,5 +106,6 @@ function generaTicketMarkup(
                     </div>
                 </div>
                 <!-- /.card-footer -->
+                
             </div>`;
 }
